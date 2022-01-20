@@ -1,6 +1,6 @@
 # Real-Time Audio Descrambler
 
-![20220119_021817](https://user-images.githubusercontent.com/73920832/150238612-9ad2512e-82f9-4f44-951c-f0ceea7d534d.jpg | width = 100)
+![20220119_021817](https://user-images.githubusercontent.com/73920832/150238612-9ad2512e-82f9-4f44-951c-f0ceea7d534d.jpg)
 
 ## Overview
 This design uses a Texas Instruments MSP432P401R development board interfaced with a potentiometer biasing circuit, a Digital-to-Analog converter (DAC), an Anti-Aliasing Filter, a voltage amplifier and the speaker. The MSP432 implements an Analog-to-Digital (ADC), Bandstop filter and sinewave modulation.
