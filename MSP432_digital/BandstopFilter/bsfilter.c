@@ -31,7 +31,7 @@ int main(void)
     MAP_WDT_A_holdTimer();  // very common command to prevent MSP from stopping automatically.
         // if timer wdt_a enabled -> potential infinite boot loops in initialisation, unknown initial position of time register etc
 
-    // PIN DEFINITIONS:
+    // PIN DEFINITIONS: 
 
     /* P6.0 set as output. This is used for timing the duration of the systick_isr. P6.0 is set high on entering the systick_isr and
      * off on exiting.  An oscilloscope can be used to monitor how much time the interrupt requires to complete all the operations.
