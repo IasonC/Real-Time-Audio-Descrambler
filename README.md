@@ -19,3 +19,6 @@ The connected circuit receives as input the scrambled audio signal played from a
 First, the ADC is using the built-in ADC14 module configured automatically for 14 bits. However, it is set in my code to represent voltage inputs only using 10 bits. This is to reduce complexity and computation time while maintaining acceptable resolution. The emphasis on computation time is because a sampling frequency of 50 kHz is being used so the SysTick Interrupt Service Routine (ISR) that runs the ADC samples only has 20 μs to complete the ADC acquisition, bandstop filtering, and sinewave multiplication. If the SysTick does not complete its operation in 20 μs, the next SysTick is called so the output will be incorrect.
 
 Also, 2 kHz and 5 kHz sinuoids are used to generate the 7 kHz sine sampled at the sampling frequency of 50 kHz. This is because they are divisible by 50 kHz while 7 kHz is not.
+
+
+*This is a team project in a Group of 4 in 2nd Year of EEE at UCL. I designed, troubleshot and produced the entire code in the MSP432 and built the analog circuits, except the anti-aliasing filter, for the subsystem and integration testing.
