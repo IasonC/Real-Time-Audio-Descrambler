@@ -21,5 +21,5 @@ First, the ADC is using the built-in ADC14 module configured automatically for 1
 Also, 2 kHz and 5 kHz sinuoids are used to generate the 7 kHz sine sampled at the sampling frequency of 50 kHz. This is because they are divisible by 50 kHz while 7 kHz is not.
 
 
-_________________________________________
+__________________________________________
 *This is a team project in a Group of 4 in 2nd Year of EEE at UCL. I designed, troubleshot and produced the entire code in the MSP432 and built the analog circuits, except the anti-aliasing filter, for the subsystem and integration testing.*
