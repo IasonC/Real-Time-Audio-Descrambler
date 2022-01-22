@@ -3,11 +3,11 @@
 ![20220119_021817](https://user-images.githubusercontent.com/73920832/150238612-9ad2512e-82f9-4f44-951c-f0ceea7d534d.jpg)
 
 ## Overview
-This design uses a Texas Instruments MSP432P401R development board interfaced with a potentiometer biasing circuit, a Digital-to-Analog converter (DAC), an Anti-Aliasing Filter, a voltage amplifier and the speaker. The MSP432 implements an Analog-to-Digital (ADC), Bandstop filter and sinewave modulation.
-
 **This project is able to receive a scrambled audio message played from a computer through an audio jack and play the unscrambled, original audio message from a speaker in *real time*** (i.e. the timing of the audio output matches perfectly the corresponding point in the scrambled input).
 
-The MSP432 is programmed in Code Composer Studio. To load and run the .c files on the MSP432, the MSP is connected to the computer with a XDS110 debug probe. I used the oscilloscope on the National Instruments myDAQ to debug this project at the input and output pins, though any oscilloscope can be used.
+This design uses a Texas Instruments MSP432P401R development board interfaced with a potentiometer biasing circuit, a Digital-to-Analog converter (DAC), an Anti-Aliasing Filter, a voltage amplifier and the speaker. The MSP432 implements an Analog-to-Digital (ADC), Bandstop filter and sinewave modulation.
+
+The MSP432 is programmed in Code Composer Studio. To load and run the .c files on the MSP432, the MSP is connected to the computer through an XDS110 debug probe. I used the oscilloscope on the National Instruments myDAQ to debug this project at the input and output pins, though any oscilloscope can be used.
 
 ## Scenario
 A gang of robbers is scrambling their audio communications to communicate securely over telephone lines regarding their upcoming heist. However, the Police apprehend the gang-member who created the audio descramblers that the robbers are using. After searching his home, the Police find an audio descrambler and a recorded scrambled message. They must now descramble this message in time, in order to stop the heist!
