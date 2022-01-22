@@ -1,6 +1,8 @@
 These are live demos of the subsystem testing and integration testing of the full main.c program combining all subsystems. Individual subsystem testing is necessary to identify bugs and errros at each stage of the final product.
 
-The ramp test is the first test, which verifies that the specific MSP432 board can output values correctly, and that the analog DAC at the output Port 2 correctly converts digital outputs to the analog signal. The ramp can be produced from the MSP using the same standard code as the ADCtest.c file but by omitting the ADC configuration declarations in main and the ADC14_IRQHandler, and by declaring the SysTick_Handler as follows:
+First, the scrambled audio is a mV-sized AC signal with negative parts. However, the input pin 5.0 of the MSP432 is set to accept positive voltages from ground to 1.2 V. Thus, the potentiometer circuit which scales the audio to 0-1.2 V is tested first.
+
+Then, the ramp test is the first MSP test, which verifies that the specific MSP432 board can output values correctly, and that the analog DAC at the output Port 2 correctly converts digital outputs to the analog signal. The ramp can be produced from the MSP using the same standard code as the ADCtest.c file but by omitting the ADC configuration declarations in main and the ADC14_IRQHandler, and by declaring the SysTick_Handler as follows:
 ```
 void SysTick_Handler(void)
 {
@@ -34,6 +36,8 @@ The Bandstop test shows that the signal is strongly attenuated at 7.9 kHz to 8.2
 The Sinewave test shows that a smooth 7 kHz sinewave sampled at 50 kHz is effectively produced by the MSP. Thus, this means that in the sinewave-multiplication stage the bandstop-filtered scrambled signal is multiplied by a *smooth* sine. If the sine is not smooth, this introduces noise.
 
 Finally, the integrated analog & digital descrambler is used to show successful real-time descrambling.
+
+The SysTick oscilloscope reading at P6.0 shows that the current program is efficient enough in terms of time complexity to run comfortably within the allowed 20 μs time.
 
 <details>
   <summary>Secret message</summary>
