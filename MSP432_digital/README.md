@@ -18,6 +18,4 @@ To run the code in CCS with the
 ```
 #include "driverlib.h"
 ```
-command, the folder *"MSP432P4xx"* in this repo including the function definitions must be included as a path in 
-
-*CCS -> Project -> Properties -> Include Options*.
+command, the whole folder *"MSP432P4xx"* in this repo must be included as a path in *CCS -> Project -> Properties -> Include Options*.
