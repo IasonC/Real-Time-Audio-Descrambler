@@ -153,7 +153,7 @@ int main(void)
 
 }
 
-int j = 0;
+int j = 0; // defined outside SysTick so it is not set to 0 on every ISR cycle
 
 void SysTick_Handler(void)
 {
@@ -165,24 +165,23 @@ void SysTick_Handler(void)
     ADC_value = ADC14_getResult(ADC_MEM0); // read ADC output at MEM0 register
     ADC_value = ADC_value / 4; // div by 4 as ADC14 here is configured for 10-bit and this program uses 8-bit as P2OUT is 8-bit wide
 
-    //ADC_value -= 512.0f; // to get it from 0-1023 to -512 to 511 +-
-
     // BS
     float bs_output = bandstop(bandstop_num, bandstop_denom, bandstop_gain, ADC_value, CircularBuffer);
+        // bandstop filter implemented as type-2 order-2 chebyshev digital IIR filter
+        // this is enough to filter substantially close to 8 kHz. However, more order-2 bandstop layers could be cascaded (order-4, order-6 etc) for more accuracy
+        // -- but tradeoff with computation time - SysTick must complete operation in under 20 μs
 
     CircularBuffer[0] = CircularBuffer[1];
     CircularBuffer[1] = ADC_value;
     CircularBuffer[3] = CircularBuffer[2];
     CircularBuffer[2] = bs_output;
+    // update buffer for next iteration of bandstop filter using past inputs and outputs
 
     // SINE
-    //static
 
-    float final_out = bs_output * sin_value[j];
+    float final_out = bs_output * sin_value[j]; // sinewave descrambling
     j++;
     if (j == PTS) {j = 0;} // increment and loop back to start of sinewave cycle
-
-    //final_out += 512.0f; // add back the 512 out of 1023 to get output back to positive range for output on pin
 
     P2OUT = (final_out);
 
