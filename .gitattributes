@@ -1,3 +1,7 @@
+# .gitattributes file to ignore all vendored files in this project.
+# The vendored files are included in the project for completeness but I have not contributed
+# to them (with the exception of editing the driverlib.h file in the MSP432P4xx DriverLib file
+
 MSP432_digital/ADC_test/ccs-setup-files/** linguist-vendored
 MSP432_digital/ADC_test/targetConfigs/** linguist-vendored
 
