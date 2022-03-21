@@ -19,3 +19,6 @@ To run the code in CCS with the
 #include "driverlib.h"
 ```
 command, the whole folder *"MSP432P4xx"* in this repo must be included as a path in *CCS -> Project -> Properties -> Include Options*.
+
+## Digital Bandstop Filter
+See Real-Time-Audio-Descrambler/Analysis_MATLAB/README.md for the filterDesigner design of the Bandstop Filter and the generation of the coefficients and gain values used in the software implementation of the Bandstop Filter in the bsdef.h header file.
